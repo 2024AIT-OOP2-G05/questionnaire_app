@@ -32,7 +32,7 @@ def edit(subject_id):
 
     if request.method == 'POST':
         subject.name = request.form['name']
-        subject.price = request.form['subject']
+        subject.subject = request.form['subject']
         subject.save()
         return redirect(url_for('subject.list'))
 
