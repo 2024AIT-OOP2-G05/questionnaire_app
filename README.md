@@ -16,3 +16,11 @@ peewee==3.17.7
 ```bash
 $ python app.py
 ```
+
+## creater
+#ユーザー一覧
+
+#血液型
+
+#好きな教科
+
