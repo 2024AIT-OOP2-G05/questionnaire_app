@@ -12,7 +12,6 @@
     <ul class="breadcrumb">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
         <li><a href="{{ url_for('blood_type.list') }}">血液型一覧</a></li>
-
     </ul>
     <a href="{{ url_for('blood_type.add') }}">新規血液型追加</a>
     <table>
@@ -27,8 +26,8 @@
             {% for blood_type in items %}
             <tr>
                 <td><a href="{{ url_for('blood_type.edit', blood_type_id=blood_type.id) }}">編集</a></td>
+                <td>{{ blood_type.person_name }}</td>
                 <td>{{ blood_type.name }}</td>
-                <td>{{ blood_type.price }}</td>
             </tr>
             {% endfor %}
         </tbody>
