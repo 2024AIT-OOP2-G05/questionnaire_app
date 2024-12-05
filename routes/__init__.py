@@ -6,5 +6,5 @@ from .order import order_bp
 blueprints = [
   user_bp,
   product_bp,
-  order_bp
+  order_bp,
 ]
