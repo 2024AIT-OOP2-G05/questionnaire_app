@@ -2,7 +2,6 @@ from flask import Flask, render_template
 from models import initialize_database
 from routes import blueprints
 
-
 app = Flask(__name__)
 
 # データベースの初期化
