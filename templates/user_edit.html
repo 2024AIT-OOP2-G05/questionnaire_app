@@ -19,24 +19,17 @@
         <label>名前: <input type="text" name="name" value="{{ user.name }}" required></label><br>
         <label>年齢: <input type="number" name="age" value="{{ user.age }}" required></label><br>
         <label>星座:
-            <select name="zodiac" required>
-                <option value="" disabled>選択してください</option>
-                <option value="牡羊座" {% if user.zodiac=='牡羊座' %}selected{% endif %}>牡羊座</option>
-                <option value="牡牛座" {% if user.zodiac=='牡牛座' %}selected{% endif %}>牡牛座</option>
-                <option value="双子座" {% if user.zodiac=='双子座' %}selected{% endif %}>双子座</option>
-                <option value="蟹座" {% if user.zodiac=='蟹座' %}selected{% endif %}>蟹座</option>
-                <option value="獅子座" {% if user.zodiac=='獅子座' %}selected{% endif %}>獅子座</option>
-                <option value="乙女座" {% if user.zodiac=='乙女座' %}selected{% endif %}>乙女座</option>
-                <option value="天秤座" {% if user.zodiac=='天秤座' %}selected{% endif %}>天秤座</option>
-                <option value="蠍座" {% if user.zodiac=='蠍座' %}selected{% endif %}>蠍座</option>
-                <option value="射手座" {% if user.zodiac=='射手座' %}selected{% endif %}>射手座</option>
-                <option value="山羊座" {% if user.zodiac=='山羊座' %}selected{% endif %}>山羊座</option>
-                <option value="水瓶座" {% if user.zodiac=='水瓶座' %}selected{% endif %}>水瓶座</option>
-                <option value="魚座" {% if user.zodiac=='魚座' %}selected{% endif %}>魚座</option>
+            <select name="zodiac_sign" required>
+                {% for sign in zodiac_signs %}
+                <option value="{{ sign }}" {% if user.zodiac_sign==sign %}selected{% endif %}>
+                    {{ sign }}
+                </option>
+                {% endfor %}
             </select>
         </label><br>
         <button type="submit">保存</button>
     </form>
+
 </body>
 
 </html>

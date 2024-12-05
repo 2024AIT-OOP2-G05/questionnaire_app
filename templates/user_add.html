@@ -20,19 +20,9 @@
         <label>年齢: <input type="number" name="age" required></label><br>
         <label>星座:
             <select name="zodiac_sign" required>
-                <option value="">選択してください</option>
-                <option value="牡羊座">牡羊座</option>
-                <option value="牡牛座">牡牛座</option>
-                <option value="双子座">双子座</option>
-                <option value="蟹座">蟹座</option>
-                <option value="獅子座">獅子座</option>
-                <option value="乙女座">乙女座</option>
-                <option value="天秤座">天秤座</option>
-                <option value="蠍座">蠍座</option>
-                <option value="射手座">射手座</option>
-                <option value="山羊座">山羊座</option>
-                <option value="水瓶座">水瓶座</option>
-                <option value="魚座">魚座</option>
+                {% for sign in zodiac_signs %}
+                <option value="{{ sign }}">{{ sign }}</option>
+                {% endfor %}
             </select>
         </label><br>
         <button type="submit">追加</button>
