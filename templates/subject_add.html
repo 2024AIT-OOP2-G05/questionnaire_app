@@ -15,7 +15,7 @@
 
     <form action="{{ url_for('subject.add') }}" method="post">
         <label>名前: <input type="text" name="name" required></label><br>
-        <label>教科: <input type="number" step="1" name="subject" required></label><br>
+        <label>教科: <input type="text" step="1" name="subject" required></label><br>
         <button type="submit">追加</button>
     </form>
 </body>

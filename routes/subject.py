@@ -8,7 +8,7 @@ subject_bp = Blueprint('subject', __name__, url_prefix='/subjects')
 @subject_bp.route('/')
 def list():
     subjects = Subject.select()
-    return render_template('subject_list.html', title='強化一覧', items=subjects)
+    return render_template('subject_list.html', title='教科一覧', items=subjects)
 
 
 @subject_bp.route('/add', methods=['GET', 'POST'])

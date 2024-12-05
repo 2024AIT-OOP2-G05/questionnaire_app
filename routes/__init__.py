@@ -8,4 +8,5 @@ blueprints = [
   user_bp,
   product_bp,
   order_bp,
+  subject_bp
 ]
