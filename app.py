@@ -16,5 +16,7 @@ for blueprint in blueprints:
 def index():
     return render_template('index.html')
 
+
+
 if __name__ == '__main__':
     app.run(port=8080, debug=True)
