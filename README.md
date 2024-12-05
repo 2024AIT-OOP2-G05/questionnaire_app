@@ -1,5 +1,5 @@
-# oop2_10_sample
-第10回 講義内資料サンプルコード
+# questionnair_app
+アンケートアプリ
 
 ## require
 
