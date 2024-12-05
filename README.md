@@ -19,6 +19,7 @@ $ python app.py
 
 ## creater
 - ユーザー一覧
+梶田貴也
 
 - 血液型
 
