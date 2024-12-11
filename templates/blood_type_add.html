@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>血液型追加</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
-</head>
+</head> 
 
 <body>
     <h1>新しい血液型を追加</h1>
@@ -17,7 +17,9 @@
 
     <form action="{{ url_for('blood_type.add') }}" method="post">
         <label>名前: <input type="text" name="name" required></label><br>
+
         <label>血液型:
+
             <select name="blood_type" required>
                 <option value="A">A型</option>
                 <option value="B">B型</option>

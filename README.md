@@ -1,5 +1,5 @@
-# oop2_10_sample
-第10回 講義内資料サンプルコード
+# questionnair_app
+アンケートアプリ
 
 ## require
 
@@ -16,3 +16,22 @@ peewee==3.17.7
 ```bash
 $ python app.py
 ```
+
+## creater
+
+<dl>
+<dt> ユーザー一覧 </dt>
+
+     梶田貴也
+
+<dt> 血液型 </dt> 
+
+     河合秀隼
+ 
+     廣見有音
+
+<dt> 好きな教科 </dt> 
+
+     櫻井晶斗
+
+     前田誠吾

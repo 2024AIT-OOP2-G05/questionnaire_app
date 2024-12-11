@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <title>ユーザー追加</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
 </head>
+
 <body>
     <h1>新しいユーザーを追加</h1>
     <ul class="breadcrumb">
@@ -16,7 +18,15 @@
     <form action="{{ url_for('user.add') }}" method="post">
         <label>名前: <input type="text" name="name" required></label><br>
         <label>年齢: <input type="number" name="age" required></label><br>
+        <label>星座:
+            <select name="zodiac_sign" required>
+                {% for sign in zodiac_signs %}
+                <option value="{{ sign }}">{{ sign }}</option>
+                {% endfor %}
+            </select>
+        </label><br>
         <button type="submit">追加</button>
     </form>
 </body>
+
 </html>
