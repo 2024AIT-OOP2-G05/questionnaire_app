@@ -26,8 +26,10 @@
             {% for blood_type in items %}
             <tr>
                 <td><a href="{{ url_for('blood_type.edit', blood_type_id=blood_type.id) }}">編集</a></td>
-                <td>{{ blood_type.person_name }}</td>
-                <td>{{ blood_type.name }}</td>
+
+                <td>{{ blood_type.name}}</td>
+                <td>{{ blood_type.blood_type}}</td>
+
             </tr>
             {% endfor %}
         </tbody>
