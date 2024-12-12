@@ -64,6 +64,21 @@
             "id": 13,
             "name": "ああアフェ",
             "blood_type": "A"
+        },
+        {
+            "id": 14,
+            "name": "追加したよB",
+            "blood_type": "B"
+        },
+        {
+            "id": 15,
+            "name": "河合",
+            "blood_type": "A"
+        },
+        {
+            "id": 16,
+            "name": "テスト",
+            "blood_type": "AB"
         }
     ]
 }
