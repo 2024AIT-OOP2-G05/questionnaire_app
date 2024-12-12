@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <title>血液型一覧</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
 </head>
-
 <body>
     <h1>{{ title }}</h1>
     <ul class="breadcrumb">
@@ -26,12 +24,13 @@
             {% for blood_type in items %}
             <tr>
                 <td><a href="{{ url_for('blood_type.edit', blood_type_id=blood_type.id) }}">編集</a></td>
-                <td>{{ blood_type.person_name }}</td>
-                <td>{{ blood_type.name }}</td>
+
+                <td>{{ blood_type.name}}</td>
+                <td>{{ blood_type.blood_type}}</td>
+
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </body>
-
 </html>

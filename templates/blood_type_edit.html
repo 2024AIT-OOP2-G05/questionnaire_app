@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <title>血液型編集</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
 </head>
-
 <body>
     <h1>血液型を編集</h1>
     <ul class="breadcrumb">
@@ -14,19 +12,19 @@
         <li><a href="{{ url_for('blood_type.list') }}">血液型一覧</a></li>
         <li>血液型編集</li>
     </ul>
-
     <form action="{{ url_for('blood_type.edit', blood_type_id=blood_type.id) }}" method="post">
         <label>名前: <input type="text" name="name" value="{{ blood_type.name }}" required></label><br>
         <label>血液型:
             <select name="blood_type" required>
-                <option value="A" {% if blood_type.price == 'A' %}selected{% endif %}>A型</option>
-                <option value="B" {% if blood_type.price == 'B' %}selected{% endif %}>B型</option>
-                <option value="AB" {% if blood_type.price == 'AB' %}selected{% endif %}>AB型</option>
-                <option value="O" {% if blood_type.price == 'O' %}selected{% endif %}>O型</option>
+
+                <option value="A">A型</option>
+                <option value="B">B型</option>
+                <option value="AB">AB型</option>
+                <option value="O">O型</option>
+
             </select>
         </label><br>
         <button type="submit">保存</button>
     </form>
 </body>
-
 </html>
