@@ -22,9 +22,9 @@
             </tr>
         </thead>
         <tbody>
-            {% for product in items %}
+            {% for subject in items %}
             <tr>
-                <td><a href="{{ url_for('subject.edit', subject_id=product.id) }}">編集</a></td>
+                <td><a href="{{ url_for('subject.edit', subject_id=subject.id) }}">編集</a></td>
                 <td>{{ subject.name }}</td>
                 <td>{{ subject.price }}</td>
             </tr>
