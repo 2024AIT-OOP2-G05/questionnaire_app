@@ -31,6 +31,11 @@ def get_users_json():
     # JSON形式で返す
     return jsonify(users_list)
 
+@app.route('/top_page', methods=['GET'])
+def top_page():
+    """統計情報を表示する専用ページ"""
+    return render_template('top_page.html')
+
 
 if __name__ == '__main__':
     app.run(port=8081, debug=True)
