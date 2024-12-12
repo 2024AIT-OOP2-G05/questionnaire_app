@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>教科追加</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
+</head>
+
+<body>
+    <h1>新しい教科を追加</h1>
+    <ul class="breadcrumb">
+        <li><a href="{{ url_for('index') }}">HOME</a></li>
+        <li><a href="{{ url_for('subject.list') }}">教科一覧</a></li>
+        <li>新規教科</li>
+    </ul>
+
+    <form action="{{ url_for('subject.add') }}" method="post">
+        <label>名前: <input type="text" name="name" required></label><br>
+
+        <label>教科:
+
+            <select name="subject" required>
+                <option value="国語">国語</option>
+                <option value="数学">数学</option>
+                <option value="理科">理科</option>
+                <option value="英語">英語</option>
+                <option value="社会">社会</option>
+            </select>
+        </label><br>
+        <button type="submit">追加</button>
+    </form>
+</body>
+
+</html>

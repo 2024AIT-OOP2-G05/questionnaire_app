@@ -15,9 +15,12 @@ def list():
 def add():
     if request.method == 'POST':
         name = request.form['name']  # 'name' フィールドを取得
-        person_name = request.form['person_name']  # 'person_name' フィールドを取得
-        blood_type_value = request.form['blood_type']  # 選ばれた血液型を取得
-        Blood_type.create(name=name, person_name=person_name, price=blood_type_value)  # データベースに保存
+
+        #person_name = request.form['person_name']  # 'person_name' フィールドを取得
+        blood_type = request.form['blood_type']  # 選ばれた血液型を取得
+        #Blood_type.create(name=name, person_name=person_name, price=blood_type_value)  # データベースに保存
+        Blood_type.create(name=name,  blood_type=blood_type)
+
         return redirect(url_for('blood_type.list'))
 
     return render_template('blood_type_add.html')
@@ -31,8 +34,9 @@ def edit(blood_type_id):
 
     if request.method == 'POST':
         blood_type.name = request.form['name']
-        blood_type.price = request.form['price']
+        blood_type.blood_type = request.form['blood_type']
         blood_type.save()
         return redirect(url_for('blood_type.list'))
+    
 
     return render_template('blood_type_edit.html', blood_type=blood_type)
