@@ -8,7 +8,7 @@ subject_bp = Blueprint('subject', __name__, url_prefix='/subjects')
 @subject_bp.route('/')
 def list():
     subjects = Subject.select()
-    return render_template('subject_list.html', title='教科一覧', items=subjects)
+    return render_template('subject_list.html', title='好きな教科', items=subjects)
 
 
 @subject_bp.route('/add', methods=['GET', 'POST'])
@@ -17,8 +17,8 @@ def add():
     # POSTで送られてきたデータは登録
     if request.method == 'POST':
         name = request.form['name']
-        subject = request.form['subject']
-        Subject.create(name=name, subject=subject)
+        price = request.form['price']
+        Subject.create(name=name, price=price)
         return redirect(url_for('subject.list'))
     
     return render_template('subject_add.html')
@@ -32,7 +32,7 @@ def edit(subject_id):
 
     if request.method == 'POST':
         subject.name = request.form['name']
-        subject.subject = request.form['subject']
+        subject.price = request.form['price']
         subject.save()
         return redirect(url_for('subject.list'))
 
