@@ -79,6 +79,11 @@
             "id": 16,
             "name": "テスト",
             "blood_type": "AB"
+        },
+        {
+            "id": 17,
+            "name": "最終確認用",
+            "blood_type": "A"
         }
     ]
 }
