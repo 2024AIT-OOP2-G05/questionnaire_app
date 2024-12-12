@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>データ一覧</title>
+    <title>血液型一覧</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
 </head>
 
@@ -11,26 +11,25 @@
     <h1>{{ title }}</h1>
     <ul class="breadcrumb">
         <li><a href="{{ url_for('index') }}">HOME</a></li>
-        <li><a href="{{ url_for('user.list') }}">ユーザー一覧</a></li>
+        <li><a href="{{ url_for('blood_type.list') }}">血液型一覧</a></li>
     </ul>
-
-    <a href="{{ url_for('user.add') }}">新規ユーザー追加</a>
+    <a href="{{ url_for('blood_type.add') }}">新規血液型追加</a>
     <table>
         <thead>
             <tr>
                 <th>&nbsp;</th>
                 <th>名前</th>
-                <th>年齢</th>
-                <th>星座</th>
+                <th>血液型</th>
             </tr>
         </thead>
         <tbody>
-            {% for user in items %}
+            {% for blood_type in items %}
             <tr>
-                <td><a href="{{ url_for('user.edit', user_id=user.id) }}">編集</a></td>
-                <td>{{ user.name }}</td>
-                <td>{{ user.age }}</td>
-                <td>{{ user.zodiac_sign }}</td>
+                <td><a href="{{ url_for('blood_type.edit', blood_type_id=blood_type.id) }}">編集</a></td>
+
+                <td>{{ blood_type.name}}</td>
+                <td>{{ blood_type.blood_type}}</td>
+
             </tr>
             {% endfor %}
         </tbody>
