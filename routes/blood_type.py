@@ -19,6 +19,7 @@ def add():
         return redirect(url_for('blood_type.list'))
 
     return render_template('blood_type_add.html')
+
 @blood_type_bp.route('/edit/<int:blood_type_id>', methods=['GET', 'POST'])
 def edit(blood_type_id):
     blood_type = Blood_type.get_or_none(Blood_type.id == blood_type_id)
@@ -30,4 +31,6 @@ def edit(blood_type_id):
         blood_type.save()
         return redirect(url_for('blood_type.list'))
     
+
     return render_template('blood_type_edit.html', blood_type=blood_type)
+

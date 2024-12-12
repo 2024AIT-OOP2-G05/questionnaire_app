@@ -1,9 +1,10 @@
 from peewee import Model, CharField, DecimalField
 from .db import db
 
-class Product(Model):
+class Subject(Model):
     name = CharField()
-    price = DecimalField()
-    bloodtype = CharField()
+
+    subject = CharField()
+
     class Meta:
         database = db
