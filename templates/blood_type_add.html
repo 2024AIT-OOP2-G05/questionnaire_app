@@ -17,7 +17,9 @@
 
     <form action="{{ url_for('blood_type.add') }}" method="post">
         <label>名前: <input type="text" name="name" required></label><br>
-        <label>血液型: 
+
+        <label>血液型:
+
             <select name="blood_type" required>
                 <option value="A">A型</option>
                 <option value="B">B型</option>
