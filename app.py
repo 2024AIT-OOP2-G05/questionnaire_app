@@ -1,6 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify 
 from models import initialize_database
 from routes import blueprints
+from models.user import User
 import sqlite3
 import json
 
@@ -55,6 +56,25 @@ def index():
     success, message = convert_table_to_json(db_file, table_name, json_file)
 
     return render_template('index.html', message=message)
+
+
+@app.route('/users/json', methods=['GET'])
+def get_users_json():
+    """ユーザーデータをJSON形式で返す"""
+    # データベースから全ユーザー情報を取得
+    users = User.select()
+
+    # データを辞書形式に変換してリスト化
+    users_list = [user.to_dict() for user in users]
+
+    # JSON形式で返す
+    return jsonify(users_list)
+
+@app.route('/top_page', methods=['GET'])
+def top_page():
+    """統計情報を表示する専用ページ"""
+    return render_template('top_page.html')
+
 
 if __name__ == '__main__':
     app.run(port=8081, debug=True)

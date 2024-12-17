@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>統計情報</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin: 20px;
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .chart-box {
+            flex: 1 1 300px;
+            max-width: 400px;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        canvas {
+            width: 100% !important;
+            height: auto !important;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ユーザー統計情報</h1>
+
+    <div class="chart-container">
+        <!-- 左側: 棒グラフ -->
+        <div class="chart-box">
+            <h2>年齢分布</h2>
+            <canvas id="ageChart"></canvas>
+        </div>
+
+        <!-- 右側: 円グラフ -->
+        <div class="chart-box">
+            <h2>星座分布</h2>
+            <canvas id="zodiacChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // サーバーからJSONデータを取得
+        fetch('/users/json')
+            .then(response => response.json())
+            .then(data => {
+                // 年齢分布を計算
+                const ageDistribution = {};
+                data.forEach(user => {
+                    const ageGroup = `${Math.floor(user.age / 10) * 10}代`;
+                    ageDistribution[ageGroup] = (ageDistribution[ageGroup] || 0) + 1;
+                });
+
+                // 星座分布を計算
+                const zodiacDistribution = {};
+                data.forEach(user => {
+                    zodiacDistribution[user.zodiac_sign] = (zodiacDistribution[user.zodiac_sign] || 0) + 1;
+                });
+
+                // 年齢分布の棒グラフを描画
+                const ageLabels = Object.keys(ageDistribution);
+                const ageValues = Object.values(ageDistribution);
+                new Chart(document.getElementById('ageChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: ageLabels,
+                        datasets: [{
+                            label: '人数',
+                            data: ageValues,
+                            backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: { beginAtZero: true }
+                        }
+                    }
+                });
+
+                // 星座分布の円グラフを描画
+                const zodiacLabels = Object.keys(zodiacDistribution);
+                const zodiacValues = Object.values(zodiacDistribution);
+                new Chart(document.getElementById('zodiacChart'), {
+                    type: 'pie',
+                    data: {
+                        labels: zodiacLabels,
+                        datasets: [{
+                            label: '人数',
+                            data: zodiacValues,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.5)',
+                                'rgba(54, 162, 235, 0.5)',
+                                'rgba(255, 206, 86, 0.5)',
+                                'rgba(75, 192, 192, 0.5)',
+                                'rgba(153, 102, 255, 0.5)',
+                                'rgba(255, 159, 64, 0.5)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: { position: 'bottom' }
+                        }
+                    }
+                });
+            });
+    </script>
+</body>
+
+</html>
