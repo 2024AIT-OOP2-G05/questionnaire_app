@@ -1,0 +1,26 @@
+{
+    "blood_type": [
+        {
+            "id": 1,
+            "name": "ううううう",
+            "blood_type": "B"
+        }
+    ],
+    "user": [
+        {
+            "id": 1,
+            "name": "ああああ",
+            "age": 6,
+            "zodiac_sign": "牡羊座"
+        }
+    ],
+    "product": [],
+    "order": [],
+    "subject": [
+        {
+            "id": 1,
+            "name": "いいいいいい",
+            "subject": "英語"
+        }
+    ]
+}
