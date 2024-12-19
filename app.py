@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from models import initialize_database
 from routes import blueprints
+from routes.graph_subject import graph_bp
 
 
 app = Flask(__name__)
@@ -16,6 +17,8 @@ for blueprint in blueprints:
 @app.route('/')
 def index():
     return render_template('index.html')
+
+app.register_blueprint(graph_bp)
 
 if __name__ == '__main__':
     app.run(port=8081, debug=True)

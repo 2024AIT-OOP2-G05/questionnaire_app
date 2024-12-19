@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>教科ごとの登録数グラフ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base-style.css') }}">
+</head>
+
+<body>
+    <h1>教科ごとの登録数</h1>
+    <img src="{{ graph_url }}" alt="教科ごとの登録数グラフ">
+    <a href="{{ url_for('subject.list') }}">教科一覧に戻る</a>
+</body>
+
+</html>
