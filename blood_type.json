@@ -2,7 +2,12 @@
     "blood_type": [
         {
             "id": 1,
-            "name": "確認用",
+            "name": "廣見有音",
+            "blood_type": "B"
+        },
+        {
+            "id": 2,
+            "name": "test",
             "blood_type": "A"
         }
     ]
